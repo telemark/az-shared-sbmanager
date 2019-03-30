@@ -3,23 +3,27 @@ const getResources = require('../lib/get-resources')
 
 ;(async () => {
   try {
-    const {credentials, subscriptions} = await auth()
-    
+    const { credentials, subscriptions } = await auth()
+
     const subId = subscriptions[0].id
     const resources = await getResources(credentials)
 
-    console.log('####################')
-    let resourceGroups = await resources.getResourcegroups(subId)
-    console.log('####################')
-    let namespaces = await resources.getNamespaces(subId)
-    console.log('####################')
-    let queues = await resources.getQueues(subId, namespaces)
-    console.log(queues.map(queue => ({
-      name: queue.name,
-      res: queue.resourceGroupName,
-      ns: queue.namespaceName
-    })))
+    let messages = await resources.getMessagesInQueue(subId)
 
+    console.log(messages)
+
+    /*
+    let resourceGroups = await resources.getResourcegroups(subId)
+    let namespaces = await resources.getNamespaces(subId)
+    let queues = await resources.getQueues(subId, namespaces)
+
+    let allResources = {
+      resourceGroups: resourceGroups,
+      namespaces: namespaces,
+      queues: queues
+    }
+    console.log(allResources)
+    //*/
   } catch (error) {
     console.error(error)
   }
