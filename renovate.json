@@ -1,3 +1,4 @@
+// Edit or add a preset in this repository instead: https://github.com/telemark/renovate-config
 {
   "extends": [
     "github>telemark/renovate-config"
