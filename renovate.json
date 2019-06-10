@@ -1,4 +1,5 @@
 {
+  "description": "Renovate",
   "extends": [
     "github>telemark/renovate-config"
   ]
