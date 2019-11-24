@@ -1,5 +1,5 @@
 {
   "extends": [
-    "github>telemark/renovate-config"
+    "github>vtfk/renovate-config"
   ]
 }
